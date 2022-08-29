@@ -17,7 +17,7 @@
 
 # Api Architecture
 - I've used TSQL Stored Procedures in order to have more control over queries 
-- I've implemented one <code>ISqlAcces</code> layer to talk to database and one <code>DataAccess</code> layer for abstraction.
+- I've implement [repository pattern](https://www.codeguru.com/csharp/repository-pattern-c-sharp/) for data access abstraction.
 
 # Technologies
 - ASP.NET WebApi 6
