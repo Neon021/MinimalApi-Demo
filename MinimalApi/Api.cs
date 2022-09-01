@@ -14,11 +14,11 @@ namespace MinimalApi
             app.MapGet(pattern: "/Users", DeleteBand);
         }
 
-        private static async Task<IResult> GetBands(IBandData userData)
+        private static async Task<IResult> GetBands(IBandData bandData)
         {
             try
             {
-                return Results.Ok(await userData.GetAllBand());
+                return Results.Ok(await bandData.GetAllBand());
             }
             catch (Exception ex)
             {
@@ -42,11 +42,11 @@ namespace MinimalApi
             }
         }
 
-        private static async Task<IResult> InsertBand(BandModel userData, IBandData user)
+        private static async Task<IResult> InsertBand(BandModel bandData, IBandData band)
         {
             try
             {
-                await user.CreateBand(userData);
+                await band.CreateBand(bandData);
                 return Results.Ok();
 
             }
@@ -57,11 +57,11 @@ namespace MinimalApi
             }
         }
 
-        private static async Task<IResult> UpdateBand(BandModel userData, IBandData user)
+        private static async Task<IResult> UpdateBand(BandModel bandData, IBandData band)
         {
             try
             {
-                await user.UpdateBand(userData);
+                await band.UpdateBand(bandData);
                 return Results.Ok();
             }
             catch (Exception e)
@@ -71,11 +71,11 @@ namespace MinimalApi
             }
         }
 
-        private static async Task<IResult> DeleteBand(int id, IBandData user)
+        private static async Task<IResult> DeleteBand(int id, IBandData band)
         {
             try
             {
-                await user.DeleteBand(id);
+                await band.DeleteBand(id);
                 return Results.Ok();
             }
             catch (Exception e)
